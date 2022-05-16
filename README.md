@@ -1,0 +1,1 @@
+Pomdoro App that tracks your work sessions and keeps you productive.
