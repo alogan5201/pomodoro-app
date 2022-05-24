@@ -40,3 +40,5 @@ yarn-error.log*
 .eslintcache
 .obsidian/
 .vscode/
+# Local Netlify folder
+.netlify
