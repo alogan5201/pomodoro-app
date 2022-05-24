@@ -13,7 +13,7 @@ function App() {
   const [settingsVisible, setSettingsVisible] = useState(false);
   const [timerMode, setTimerMode] = useState("pomo");
 
-  const [pomoLength, setPomoLength] = useState(0.1);
+  const [pomoLength, setPomoLength] = useState(25);
   const [shortLength, setShortLength] = useState(5);
   const [longLength, setLongLength] = useState(15);
 
