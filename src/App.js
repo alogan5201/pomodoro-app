@@ -10,10 +10,11 @@ import Tomato from "./components/Tomato/tomato";
 import timesUpSfx from "./sounds/notification.mp3";
 
 function App() {
+
   const [settingsVisible, setSettingsVisible] = useState(false);
   const [timerMode, setTimerMode] = useState("pomo");
 
-  const [pomoLength, setPomoLength] = useState(25);
+  const [pomoLength, setPomoLength] = useState(0.1);
   const [shortLength, setShortLength] = useState(5);
   const [longLength, setLongLength] = useState(15);
 
@@ -67,8 +68,10 @@ function App() {
   }
 
   function TomatosList() {
-    const listItems = list.map((item) => (
-      <div className="lg:w-1/6 md:w-1/6 p-0  ">
+    
+
+    const listItems = list.map((item, index) => (
+      <div key = {index} className="lg:w-1/6 md:w-1/6 p-0  ">
         <div className="mt-4">
           <Tomato type={item} />
         </div>
@@ -84,7 +87,9 @@ function App() {
     }
     return newArr;
   }
-  useEffect(() => {
+   useEffect(() => {
+     if(isActive === false ){
+
     if ((list.length === 0 && halfTomatoValue > 0) || fullTomatoValue > 0) {
       let fullTomatos = range(1, fullTomatoValue);
 
@@ -99,13 +104,14 @@ function App() {
       set(list2);
     }
 
-    setTimeout(() => {
-      console.log(list);
-    }, 500);
+     }
+
+
+ 
     //   return () => {
     //   addTomatos()
     // };
-  }, [halfTomatoValue, fullTomatoValue, list, set]);
+  }, [isActive]); 
 
   function updateTomatos(count) {
     let odd = isOdd(count);
